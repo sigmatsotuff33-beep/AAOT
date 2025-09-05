@@ -1,0 +1,30 @@
+#!/bin/bash
+# Post-installation script
+
+echo "Setting up AAOT..."
+echo ""
+
+# Create config directory if it doesn't exist
+if [ ! -d /etc/aaot ]; then
+    mkdir -p /etc/aaot
+    chmod 755 /etc/aaot
+fi
+
+# Copy example config if no config exists
+if [ ! -f /etc/aaot/api_keys.json ]; then
+    if [ -f /usr/share/aaot/config/api_keys.json.example ]; then
+        cp /usr/share/aaot/config/api_keys.json.example /etc/aaot/api_keys.json
+        chmod 644 /etc/aaot/api_keys.json
+        echo "Created example config file: /etc/aaot/api_keys.json"
+        echo "Please edit this file with your API keys."
+    fi
+fi
+
+# Install Python dependencies
+echo "Installing Python dependencies..."
+pip3 install -r /usr/share/aaot/requirements.txt
+
+echo ""
+echo "AAOT installation complete!"
+echo "Run 'aaot --help' to get started."
+echo "Remember to configure your API keys in /etc/aaot/api_keys.json"

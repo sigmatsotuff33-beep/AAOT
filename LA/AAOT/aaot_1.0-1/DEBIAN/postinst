@@ -1,0 +1,35 @@
+#!/bin/bash
+# Post-installation script for AAOT on Parrot OS
+
+echo "Setting up AAOT for Parrot OS..."
+echo ""
+
+# Create config directory if it doesn't exist
+if [ ! -d /etc/aaot ]; then
+    mkdir -p /etc/aaot
+    chmod 755 /etc/aaot
+fi
+
+# Copy example config if no config exists
+if [ ! -f /etc/aaot/api_keys.json ]; then
+    if [ -f /usr/share/aaot/config/api_keys.json ]; then
+        cp /usr/share/aaot/config/api_keys.json /etc/aaot/api_keys.json.example
+        chmod 644 /etc/aaot/api_keys.json.example
+        echo "Created example config file: /etc/aaot/api_keys.json.example"
+        echo "Copy this to api_keys.json and edit with your API keys."
+    fi
+fi
+
+# Install Python dependencies
+echo "Installing Python dependencies..."
+if command -v pip3 &> /dev/null; then
+    pip3 install -r /usr/share/aaot/requirements.txt
+else
+    echo "pip3 not found. Please install python3-pip first."
+fi
+
+echo ""
+echo "AAOT installation complete for Parrot OS!"
+echo "Run 'aaot --help' to get started."
+echo "Configure your API keys by copying /etc/aaot/api_keys.json.example to /etc/aaot/api_keys.json"
+echo "AAOT is now ready for OSINT operations on Parrot OS!"

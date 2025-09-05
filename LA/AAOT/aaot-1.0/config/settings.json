@@ -1,0 +1,6 @@
+{
+    "timeout": 15,
+    "max_results": 9999,
+    "output_format": "json",
+    "verbose": false
+}

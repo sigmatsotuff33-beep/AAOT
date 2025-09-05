@@ -1,0 +1,9 @@
+aaot (1.0-1) unstable; urgency=medium
+
+  * Initial release for Parrot OS
+  * Fixed maigret and holehe module command arguments
+  * Added 5 additional OSINT tools: Wayback Machine, WHOIS, DIG, PING
+  * Updated documentation and contact information
+  * Tested and verified working on Debian-based systems
+
+ -- sigmatsotuff33 <sigmatsotuff33@gmail.com>  Mon, 05 Sep 2025 11:00:00 +0000
