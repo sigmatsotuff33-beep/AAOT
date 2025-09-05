@@ -18,3 +18,6 @@ The Gist:
 For: Pentesters, researchers, and pros who value function over form.
 
 🚧 Brutal Feedback Welcome: This tool evolves based on user comments. Tell me what's broken, what's missing, and what sucks. See the changelog.
+
+
+(just be open source and in the best os ever brutal.)
